@@ -30,7 +30,7 @@ const CreateAccount = () => {
       }
 
       // Handle successful account creation
-    } catch (error) {
+    } catch {
       // Optionally, show an error message to the user
     }
   };

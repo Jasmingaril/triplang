@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
 
 // Book type
 interface Book {
@@ -12,81 +11,11 @@ interface Book {
   publicationDate: string;
 }
 
-interface ViewModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  book?: Book;
-}
-
-const ViewModal: React.FC<ViewModalProps> = ({ isOpen, onClose, book }) => {
-  if (!isOpen || !book) return null;
-
-  return (
-    <div className="fixed inset-0 bg-opacity-10 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md text-black shadow-lg">
-        <h2 className="text-xl font-semibold mb-4">View Book Details</h2>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Book ID</label>
-          <input
-            type="text"
-            value={book.id}
-            disabled
-            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Title</label>
-          <input
-            type="text"
-            value={book.title}
-            disabled
-            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Author</label>
-          <input
-            type="text"
-            value={book.author}
-            disabled
-            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Genre</label>
-          <input
-            type="text"
-            value={book.genre}
-            disabled
-            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-500"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Publication Date</label>
-          <input
-            type="text"
-            value={book.publicationDate}
-            disabled
-            className="w-full px-3 py-2 border rounded bg-gray-100 text-gray-500"
-          />
-        </div>
-        <div className="flex justify-end gap-2">
-          <button onClick={onClose} className="px-4 py-2 bg-gray-300 rounded">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 interface TablesProps {
   books: Book[];
 }
 
 const Tables: React.FC<TablesProps> = ({ books: initialBooks }) => {
-  const router = useRouter();
-
   const [books, setBooks] = useState<Book[]>(initialBooks);
 
   React.useEffect(() => {

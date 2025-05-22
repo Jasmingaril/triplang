@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import Sidebar from "./sidebar";
 import Navbar from "./navbar";
-import CreateAccount from "../create-account/page"; 
 
 const Home: React.FC = () => {
   return (

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Sidebar from "./sidebar";
 import Table from "./table";
 import Link from "next/link";
+import Image from "next/image";
 
 // --- AddBookModal component ---
 interface AddBookModalProps {
@@ -206,7 +207,7 @@ const Navbar = () => {
                 aria-label="Account"
                 aria-haspopup="true"
               >
-                <img
+                <Image
                   className="object-cover w-8 h-8 rounded-full"
                   src="/profile-circle.png"
                   alt="user profile"

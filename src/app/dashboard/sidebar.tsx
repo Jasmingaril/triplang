@@ -2,22 +2,19 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-const Dashboard: React.FC = () => {
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+const Sidebar: React.FC = () => {
+  // Removed isSideMenuOpen and toggleSideMenu since they are unused
   const [isBooksMenuOpen, setIsBooksMenuOpen] = useState(false);
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
 
-  const toggleSideMenu = () => setIsSideMenuOpen(!isSideMenuOpen);
   const toggleBooksMenu = () => setIsBooksMenuOpen(!isBooksMenuOpen);
   const toggleAccountMenu = () => setIsAccountMenuOpen(!isAccountMenuOpen);
 
   return (
-    <div className="flex h-screen bg-white-50">
+    <div className="flex h-screen bg-white">
       {/* Sidebar */}
       <aside
-        className={`z-20 fixed inset-y-0 left-0 w-64 overflow-y-auto bg-white-700 text-black md:static md:block flex-shrink-0 transition-transform transform ${
-          isSideMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0`}
+        className={`z-20 fixed inset-y-0 left-0 w-64 overflow-y-auto bg-gray-700 text-black md:static md:block flex-shrink-0 transition-transform transform md:translate-x-0`}
       >
         <div className="py-4 text-black">
           <ul className="mt-6">
@@ -178,4 +175,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Sidebar;
