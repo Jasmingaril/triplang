@@ -14,6 +14,8 @@ interface Book {
   publicationDate: string;
 }
 
+
+
 const Navbar = () => {
   const [search, setSearch] = useState("");
   const [isProfileMenuOpen, setProfileMenuOpen] = useState(false);
